@@ -1,0 +1,13 @@
+<% content_for :header do %>
+  <div class="hero is-warning">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">Sell an Instrument</h1>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="pv4">
+  <%= render 'form', instrument: @instrument %>
+</div>
