@@ -11,9 +11,6 @@ document.addEventListener('turbolinks:load', function() {
       // Closure to capture the file information
       reader.onload = (function(theFile) {
         return function(e) {
-          console.log(e.target)
-          console.log(e.target.result)
-          console.log(theFile)
           // Render thumbnail
           var span = document.createElement('span');
           span.innerHTML = `<img class="instrument-preview-thumb" src="${e.target.result}" title="${escape(theFile.name)}" />`;
