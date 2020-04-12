@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'bulma-rails', '~> 0.6.1'
-gem 'simple_form', '~> 3.5'
+gem 'simple_form', '~> 5.0'
 gem 'devise', '~> 4.4'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'carrierwave'
