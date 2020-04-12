@@ -3,6 +3,7 @@ class Instrument < ApplicationRecord
   serialize :image, JSON # si se utiliza SQLite
 
   belongs_to :user, optional: true
+  has_many :line_items
 
   BRAND = %w{ Fender Gibson Epiphone ESP Martin Dean Taylor Jackson PRS Ibanez Charvel Washburn }
   FINISH = %w{ Black White Navy Blue Red Clear Satin Yellow Seafoam }
@@ -15,4 +16,15 @@ class Instrument < ApplicationRecord
   validates :brand, inclusion: { in: BRAND }
   validates :finish, inclusion: { in: FINISH }
   validates :condition, inclusion: { in: CONDITION }
+
+  before_destroy :not_referenced_by_any_line_item
+
+  private
+
+  def not_referenced_by_any_line_item
+    unless line_items.empty?
+      errors.add(:base, 'Line items present')
+      throw :abort
+    end
+  end
 end
